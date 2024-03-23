@@ -1,5 +1,3 @@
-# Iona - Trader
-
 ## Description
 
 Iona is a custom modded trader added to SPTarkov with the sole purpose of selling hilariously misplaced weebed-out guns and items. 

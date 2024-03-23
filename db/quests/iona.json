@@ -1,0 +1,828 @@
+{
+    "painter_1": {
+        "QuestName": "Taped Up",
+        "_id": "painter_1",
+        "canShowNotificationsInGame": true,
+        "changeQuestMessageText": "painter_1 changeQuestMessageText",
+        "conditions": {
+            "AvailableForFinish": [
+                {
+                    "_parent": "HandoverItem",
+                    "_props": {
+                        "dogtagLevel": 0,
+                        "dynamicLocale": false,
+                        "id": "painter_1_AFF_1",
+                        "index": 0,
+                        "maxDurability": 100,
+                        "minDurability": 0,
+                        "onlyFoundInRaid": true,
+                        "parentId": "",
+                        "target": ["57347c1124597737fb1379e3"],
+                        "value": "3",
+                        "visibilityConditions": []
+                    },
+                    "dynamicLocale": false
+                },
+                {
+                  "_parent": "HandoverItem",
+                  "_props": {
+                      "dogtagLevel": 0,
+                      "dynamicLocale": false,
+                      "id": "painter_1_AFF_2",
+                      "index": 1,
+                      "maxDurability": 100,
+                      "minDurability": 0,
+                      "onlyFoundInRaid": true,
+                      "parentId": "",
+                      "target": ["5734795124597738002c6176"],
+                      "value": "3",
+                      "visibilityConditions": []
+                  },
+                  "dynamicLocale": false
+              }
+            ],
+            "AvailableForStart": [
+                {
+                    "_parent": "Level",
+                    "_props": {
+                        "compareMethod": ">=",
+                        "dynamicLocale": false,
+                        "id": "painter_1_AFS_0",
+                        "index": 0,
+                        "parentId": "",
+                        "value": 1,
+                        "visibilityConditions": []
+                    },
+                    "dynamicLocale": false
+                }
+            ],
+            "Fail": []
+        },
+        "description": "painter_1 description",
+        "failMessageText": "painter_1 failMessageText",
+        "image": "/files/quest/icon/painter_1_thumbnail.png",
+        "instantComplete": false,
+        "isKey": false,
+        "location": "any",
+        "name": "painter_1 name",
+        "note": "painter_1 note",
+        "restartable": false,
+        "rewards": {
+            "Fail": [],
+            "Started": [],
+            "Success": [
+                {
+                    "id": "painter_1_Reward_1",
+                    "index": 0,
+                    "type": "Experience",
+                    "value": "2500"
+                },
+                    {
+                        "id": "painter_1_Reward_5",
+                        "index": 1,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_5_1",
+                            "_tpl": "MT_01007_AR_MAGPUL_30_BLUE"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_5_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },   
+                    {
+                        "id": "painter_1_Reward_6",
+                        "index": 2,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_6_1",
+                            "_tpl": "MT_01008_AR_MAGPUL_30_RED"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_6_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },    
+                    {
+                        "id": "painter_1_Reward_7",
+                        "index": 3,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_7_1",
+                            "_tpl": "MT_01009_AR_MAGPUL_30_YELLOW"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_7_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },  
+                    {
+                        "id": "painter_1_Reward_8",
+                        "index": 4,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_8_1",
+                            "_tpl": "MT_01010_AR_MAGPUL_30_WHITE"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_8_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },
+                    {
+                        "id": "painter_1_Reward_9",
+                        "index": 5,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_9_1",
+                            "_tpl": "MT_01011_AK_MAGPUL_30_BLUE"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_9_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },   
+                    {
+                        "id": "painter_1_Reward_10",
+                        "index": 6,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_10_1",
+                            "_tpl": "MT_01012_AK_MAGPUL_30_RED"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_10_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },   
+                    {
+                        "id": "painter_1_Reward_11",
+                        "index": 7,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_11_1",
+                            "_tpl": "MT_01013_AK_MAGPUL_30_GREEN"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_11_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },   
+                    {
+                        "id": "painter_1_Reward_12",
+                        "index": 8,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_12_1",
+                            "_tpl": "MT_01014_AK_MAGPUL_30_YELLOW"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_12_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },  
+                    {
+                        "id": "painter_1_Reward_13",
+                        "index": 9,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_13_1",
+                            "_tpl": "MT_01015_AK_MAGPUL_30_WHITE"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_13_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },  
+                    {
+                        "id": "painter_1_Reward_14",
+                        "index": 10,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_14_1",
+                            "_tpl": "MT_01016_AK_6L31_BLUE"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_14_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },  
+                    {
+                        "id": "painter_1_Reward_15",
+                        "index": 11,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_15_1",
+                            "_tpl": "MT_01017_AK_6L31_RED"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_15_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },  
+                    {
+                        "id": "painter_1_Reward_16",
+                        "index": 12,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_16_1",
+                            "_tpl": "MT_01018_AK_6L31_GREEN"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_16_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },  
+                    {
+                        "id": "painter_1_Reward_17",
+                        "index": 13,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_17_1",
+                            "_tpl": "MT_01019_AK_6L31_YELLOW"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_17_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },  
+                    {
+                        "id": "painter_1_Reward_18",
+                        "index": 14,
+                        "items": [
+                          {
+                            "_id": "painter_1_Reward_18_1",
+                            "_tpl": "MT_01020_AK_6L31_WHITE"
+                          }
+                        ],
+                        "loyaltyLevel": 1,
+                        "target": "painter_1_Reward_18_1",
+                        "traderId": "PAINTERSHOP",
+                        "type": "AssortmentUnlock"
+                    },  
+                {
+                    "id": "painter_1_Reward_99",
+                    "index": 15,
+                    "target": "PAINTERSHOP",
+                    "type": "TraderStanding",
+                    "value": "0.02"
+                }
+            ]
+        },
+        "secretQuest": false,
+        "side": "Pmc",
+        "startedMessageText": "painter_1 startedMessageText",
+        "successMessageText": "painter_1 successMessageText",
+        "templateId": "painter_1",
+        "traderId": "PAINTERSHOP",
+        "type": "PickUp"
+    },
+    "painter_2": {
+      "QuestName": "Topographics",
+      "_id": "painter_2",
+      "canShowNotificationsInGame": true,
+      "changeQuestMessageText": "painter_2 changeQuestMessageText",
+      "conditions": {
+          "AvailableForFinish": [
+            {
+                "_parent": "HandoverItem",
+                "_props": {
+                    "dogtagLevel": 0,
+                    "dynamicLocale": false,
+                    "id": "painter_2_AFF_0",
+                    "index": 1,
+                    "maxDurability": 100,
+                    "minDurability": 0,
+                    "onlyFoundInRaid": true,
+                    "parentId": "",
+                    "target": ["62a0a124de7ac81993580542"],
+                    "value": "1",
+                    "visibilityConditions": []
+                },
+                "dynamicLocale": false
+            }
+        ],
+        "AvailableForStart": [
+          {
+            "_parent": "Quest",
+            "_props": {
+                "availableAfter": 0,
+                "dynamicLocale": false,
+                "id": "painter_2_AFS_1",
+                "index": 1,
+                "parentId": "",
+                "status": [4],
+                "target": "painter_1",
+                "visibilityConditions": []
+            },
+            "dynamicLocale": false
+          }
+        ],
+        "Fail": []
+      },
+      "description": "painter_2 description",
+      "failMessageText": "painter_2 failMessageText",
+      "name": "painter_2 name",
+      "note": "painter_2 note",
+      "location": "any",
+      "image": "/files/quest/icon/painter_2_thumbnail.png",
+      "type": "PickUp",
+      "isKey": false,
+      "restartable": false,
+      "instantComplete": false,
+      "rewards": {
+        "Started": [],
+        "Success": [
+          {
+            "value": "6500",
+            "id": "painter_2_Reward_0",
+            "type": "Experience",
+            "index": 0
+          },
+          {
+            "id": "painter_2_Reward_1",
+            "index": 1,
+            "items": [
+              {
+                "_id": "PARENT_0101_BLACK_LINES_M4A1",
+                "_tpl": "0101_BLACK_LINES_M4A1"
+              },
+              {
+                "_id": "PISTOLGRIP_0101_BLACK_LINES_M4A1",
+                "_tpl": "6113cce3d92c473c770200c7",
+                "parentId": "PARENT_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_pistol_grip"
+              },
+              {
+                "_id": "UPPER_0101_BLACK_LINES_M4A1",
+                "_tpl": "01011_NOVESKE_REC",
+                "parentId": "PARENT_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_reciever"
+              },
+              {
+                "_id": "BARREL_0101_BLACK_LINES_M4A1",
+                "_tpl": "55d3632e4bdc2d972f8b4569",
+                "parentId": "UPPER_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_barrel"
+              },
+              {
+                "_id": "MUZZLE1_0101_BLACK_LINES_M4A1",
+                "_tpl": "56ea8180d2720bf2698b456a",
+                "parentId": "BARREL_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_muzzle"
+              },
+              {
+                "_id": "GASBLOCK_0101_BLACK_LINES_M4A1",
+                "_tpl": "56eabcd4d2720b66698b4574",
+                "parentId": "BARREL_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_gas_block"
+              },
+              {
+                "_id": "HANDGUARD1_0101_BLACK_LINES_M4A1",
+                "_tpl": "5d122e7bd7ad1a07102d6d7f",
+                "parentId": "UPPER_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_handguard"
+              },
+              {
+                "_id": "HANDGUARD2_0101_BLACK_LINES_M4A1",
+                "_tpl": "637f57c532b66e7e320a6676",
+                "parentId": "HANDGUARD1_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_handguard"
+              },
+              {
+                "_id": "BUFFER_0101_BLACK_LINES_M4A1",
+                "_tpl": "5649be884bdc2d79388b4577",
+                "parentId": "PARENT_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_stock"
+              },
+              {
+                "_id": "STOCK_0101_BLACK_LINES_M4A1",
+                "_tpl": "5b39f8db5acfc40016387a1b",
+                "parentId": "BUFFER_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_stock_000"
+              },
+              {
+                "_id": "CHARGE_0101_BLACK_LINES_M4A1",
+                "_tpl": "5f633ff5c444ce7e3c30a006",
+                "parentId": "PARENT_0101_BLACK_LINES_M4A1",
+                "slotId": "mod_charge"
+              }
+            ],
+            "loyaltyLevel": 1,
+            "target": "PARENT_0101_BLACK_LINES_M4A1",
+            "traderId": "PAINTERSHOP",
+            "type": "AssortmentUnlock"
+          },
+          {
+            "id": "painter_2_Reward_2",
+            "index": 2,
+            "items": [
+              {
+                "_id": "PARENT_0102_BLACK_LINES_AK103",
+                "_tpl": "0102_BLACK_LINES_AK103"
+              },
+              {
+                "_id": "PISTOLGRIP_0102_BLACK_LINES_AK103",
+                "_tpl": "5649ade84bdc2d1b2b8b4587",
+                "parentId": "PARENT_0102_BLACK_LINES_AK103",
+                "slotId": "mod_pistol_grip"
+              },
+              {
+                "_id": "UPPER_0102_BLACK_LINES_AK103",
+                "_tpl": "01006_BASTION",
+                "parentId": "PARENT_0102_BLACK_LINES_AK103",
+                "slotId": "mod_reciever"
+              },
+              {
+                "_id": "MUZZLE1_0102_BLACK_LINES_AK103",
+                "_tpl": "5ac72e7d5acfc40016339a02",
+                "parentId": "PARENT_0102_BLACK_LINES_AK103",
+                "slotId": "mod_muzzle"
+              },
+              {
+                "_id": "GASBLOCK_0102_BLACK_LINES_AK103",
+                "_tpl": "59c6633186f7740cf0493bb9",
+                "parentId": "PARENT_0102_BLACK_LINES_AK103",
+                "slotId": "mod_gas_block"
+              },
+              {
+                "_id": "HANDGUARD_0102_BLACK_LINES_AK103",
+                "_tpl": "5648b1504bdc2d9d488b4584",
+                "parentId": "GASBLOCK_0102_BLACK_LINES_AK103",
+                "slotId": "mod_handguard"
+              },
+              {
+                "_id": "STOCK_0102_BLACK_LINES_AK103",
+                "_tpl": "5ac50c185acfc400163398d4",
+                "parentId": "PARENT_0102_BLACK_LINES_AK103",
+                "slotId": "mod_stock"
+              }
+            ],
+            "loyaltyLevel": 1,
+            "target": "PARENT_0102_BLACK_LINES_AK103",
+            "traderId": "PAINTERSHOP",
+            "type": "AssortmentUnlock"
+          },
+          {
+            "id": "painter_2_Reward_3",
+            "index": 3,
+            "items": [
+              {
+                "_id": "PARENT_0104_BLACK_LINES_MK47",
+                "_tpl": "0104_BLACK_LINES_MK47"
+              },
+              {
+                "_id": "PISTOLGRIP_0104_BLACK_LINES_MK47",
+                "_tpl": "55802f5d4bdc2dac148b458f",
+                "parentId": "PARENT_0104_BLACK_LINES_MK47",
+                "slotId": "mod_pistol_grip"
+              },
+              {
+                "_id": "HANDGUARD_0104_BLACK_LINES_MK47",
+                "_tpl": "6065880c132d4d12c81fd8da",
+                "parentId": "UPPER_0104_BLACK_LINES_MK47",
+                "slotId": "mod_handguard"
+              },
+              {
+                "_id": "UPPER_0104_BLACK_LINES_MK47",
+                "_tpl": "01008_MK47R",
+                "parentId": "PARENT_0104_BLACK_LINES_MK47",
+                "slotId": "mod_reciever"
+                },
+              {
+                "_id": "STOCK1_0104_BLACK_LINES_MK47",
+                "_tpl": "606587e18900dc2d9a55b65f",
+                "parentId": "PARENT_0104_BLACK_LINES_MK47",
+                "slotId": "mod_stock_001"
+              },
+              {
+                "_id": "STOCK2_0104_BLACK_LINES_MK47",
+                "_tpl": "602e620f9b513876d4338d9a",
+                "parentId": "STOCK1_0104_BLACK_LINES_MK47",
+                "slotId": "mod_stock_000"
+              },
+              {
+                "_id": "BARREL_0104_BLACK_LINES_MK47",
+                "_tpl": "60658776f2cb2e02a42ace2b",
+                "parentId": "UPPER_0104_BLACK_LINES_MK47",
+                "slotId": "mod_barrel"
+              },
+              {
+                "_id": "GASBLOCK_0104_BLACK_LINES_MK47",
+                "_tpl": "6065dc8a132d4d12c81fd8e3",
+                "parentId": "BARREL_0104_BLACK_LINES_MK47",
+                "slotId": "mod_gas_block"
+              },
+              {
+                "_id": "MUZZLE1_0104_BLACK_LINES_MK47",
+                "_tpl": "6065c6e7132d4d12c81fd8e1",
+                "parentId": "BARREL_0104_BLACK_LINES_MK47",
+                "slotId": "mod_muzzle"
+              },
+              {
+                "_id": "CHARGE_0104_BLACK_LINES_MK47",
+                "_tpl": "606587bd6d0bd7580617bacc",
+                "parentId": "PARENT_0104_BLACK_LINES_MK47",
+                "slotId": "mod_charge"
+              }
+            ],
+            "loyaltyLevel": 1,
+            "target": "PARENT_0104_BLACK_LINES_MK47",
+            "traderId": "PAINTERSHOP",
+            "type": "AssortmentUnlock"
+          },
+          {
+            "value": "0.02",
+            "id": "painter_2_Reward_4",
+            "type": "TraderStanding",
+            "target": "PAINTERSHOP",
+            "index": 4
+          }
+        ],
+        "Fail": []
+      },
+       "secretQuest": false,
+       "side": "Pmc",
+       "startedMessageText": "painter_2 description",
+       "successMessageText": "painter_2 successMessageText",
+       "templateId": "painter_2",
+       "traderId": "PAINTERSHOP"
+    },
+    "painter_3": {
+      "QuestName": "Dig Deep",
+      "_id": "painter_3",
+      "canShowNotificationsInGame": true,
+      "changeQuestMessageText": "painter_3 changeQuestMessageText",
+      "conditions": {
+          "AvailableForFinish": [
+            {
+              "_parent": "CounterCreator",
+              "_props": {
+                "counter": {
+                  "conditions": [
+                    {
+                      "_parent": "Kills",
+                      "_props": {
+                        "compareMethod": ">=",
+                        "id": "painter_3_AFF_0_Kills",
+                        "target": "Savage",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "_parent": "Location",
+                      "_props": {
+                        "id": "painter_3_AFF_0_Location",
+                        "target": [
+                          "bigmap"
+                        ]
+                      }
+                    }
+                  ],
+                  "id": "painter_3_AFF_0_Counter"
+                },
+                "doNotResetIfCounterCompleted": false,
+                "dynamicLocale": false,
+                "id": "painter_3_AFF_0",
+                "index": 1,
+                "oneSessionOnly": false,
+                "parentId": "",
+                "type": "Elimination",
+                "value": "10",
+                "visibilityConditions": []
+              },
+              "dynamicLocale": false
+            }
+        ],
+        "AvailableForStart": [
+          {
+            "_parent": "Quest",
+            "_props": {
+                "availableAfter": 0,
+                "dynamicLocale": false,
+                "id": "painter_3_AFS_1",
+                "index": 1,
+                "parentId": "",
+                "status": [4],
+                "target": "painter_2",
+                "visibilityConditions": []
+            },
+            "dynamicLocale": false
+          }
+        ],
+        "Fail": []
+      },
+      "description": "painter_3 description",
+      "failMessageText": "painter_3 failMessageText",
+      "name": "painter_3 name",
+      "note": "painter_3 note",
+      "location": "56f40101d2720b2a4d8b45d6",
+      "image": "/files/quest/icon/painter_3_thumbnail.png",
+      "type": "Elimination",
+      "isKey": false,
+      "restartable": false,
+      "instantComplete": false,
+      "rewards": {
+        "Started": [],
+        "Success": [
+          {
+            "value": "6500",
+            "id": "painter_3_Reward_0",
+            "type": "Experience",
+            "index": 0
+          },
+          {
+            "value": "0.02",
+            "id": "painter_3_Reward_1",
+            "type": "TraderStanding",
+            "target": "PAINTERSHOP",
+            "index": 1
+          },
+          {
+            "findInRaid": true,
+            "id": "painter_3_Reward_2",
+            "index": 2,
+            "items": [
+              {
+                "_id": "painter_3_Reward_Roubles",
+                "_tpl": "5449016a4bdc2d6f028b456f",
+                "upd": {
+                  "StackObjectsCount": 120000
+                }
+              }
+            ],
+            "target": "painter_3_Reward_Roubles",
+            "type": "Item",
+            "value": "69699"
+          },
+          {
+            "findInRaid": true,
+            "id": "painter_3_Reward_3",
+            "index": 3,
+            "items": [
+              {
+                "_id": "painter_3_Reward_Whiskey",
+                "_tpl": "5d403f9186f7743cac3f229b",
+                "upd": {
+                  "StackObjectsCount": 3
+                }
+              }
+            ],
+            "target": "painter_3_Reward_Whiskey",
+            "type": "Item",
+            "value": "3"
+          }
+        ],
+        "Fail": []
+      },
+       "secretQuest": false,
+       "side": "Pmc",
+       "startedMessageText": "painter_3 description",
+       "successMessageText": "painter_3 successMessageText",
+       "templateId": "painter_3",
+       "traderId": "PAINTERSHOP"
+    },
+    "painter_4": {
+          "QuestName": "Workshop Refurbishment",
+          "_id": "painter_4",
+          "canShowNotificationsInGame": true,
+          "changeQuestMessageText": "painter_4 changeQuestMessageText",
+          "conditions": {
+              "AvailableForFinish": [
+                  {
+                      "_parent": "HandoverItem",
+                      "_props": {
+                          "dogtagLevel": 0,
+                          "dynamicLocale": false,
+                          "id": "painter_4_AFF_1",
+                          "index": 0,
+                          "maxDurability": 100,
+                          "minDurability": 0,
+                          "onlyFoundInRaid": true,
+                          "parentId": "",
+                          "target": ["590c2e1186f77425357b6124"],
+                          "value": "1",
+                          "visibilityConditions": []
+                      },
+                      "dynamicLocale": false
+                  },
+                  {
+                    "_parent": "HandoverItem",
+                    "_props": {
+                        "dogtagLevel": 0,
+                        "dynamicLocale": false,
+                        "id": "painter_4_AFF_2",
+                        "index": 1,
+                        "maxDurability": 100,
+                        "minDurability": 0,
+                        "onlyFoundInRaid": true,
+                        "parentId": "",
+                        "target": ["57347c5b245977448d35f6e1"],
+                        "value": "3",
+                        "visibilityConditions": []
+                    },
+                    "dynamicLocale": false
+                  },
+                  {
+                    "_parent": "HandoverItem",
+                    "_props": {
+                        "dogtagLevel": 0,
+                        "dynamicLocale": false,
+                        "id": "painter_4_AFF_3",
+                        "index": 2,
+                        "maxDurability": 100,
+                        "minDurability": 0,
+                        "onlyFoundInRaid": true,
+                        "parentId": "",
+                        "target": ["57347c77245977448d35f6e2"],
+                        "value": "3",
+                        "visibilityConditions": []
+                    },
+                    "dynamicLocale": false
+                  }
+              ],
+              "AvailableForStart": [
+                {
+                  "_parent": "Quest",
+                  "_props": {
+                      "availableAfter": 0,
+                      "dynamicLocale": false,
+                      "id": "painter_4_AFS_1",
+                      "index": 1,
+                      "parentId": "",
+                      "status": [4],
+                      "target": "painter_3",
+                      "visibilityConditions": []
+                  },
+                  "dynamicLocale": false
+                }
+              ],
+              "Fail": []
+          },
+          "description": "painter_4 description",
+          "failMessageText": "painter_4 failMessageText",
+          "image": "/files/quest/icon/painter_4_thumbnail.png",
+          "instantComplete": false,
+          "isKey": false,
+          "location": "any",
+          "name": "painter_4 name",
+          "note": "painter_4 note",
+          "restartable": false,
+          "rewards": {
+              "Fail": [],
+              "Started": [],
+              "Success": [
+                  {
+                      "id": "painter_4_Reward_1",
+                      "index": 0,
+                      "type": "Experience",
+                      "value": "2500"
+                  },
+                  {
+                      "findInRaid": true,
+                      "id": "painter_4_Reward_2",
+                      "index": 1,
+                      "items": [
+                        {
+                          "_id": "painter_4_Reward_Virtex",
+                          "_tpl": "5c05308086f7746b2101e90b",
+                          "upd": {
+                            "StackObjectsCount": 1
+                          }
+                        }
+                      ],
+                      "target": "painter_4_Reward_Virtex",
+                      "type": "Item",
+                      "value": "1"
+                  },
+                  {
+                      "id": "painter_4_Reward_3",
+                      "index": 2,
+                      "target": "PAINTERSHOP",
+                      "type": "TraderStanding",
+                      "value": "0.02"
+                  }
+              ]
+          },
+          "secretQuest": false,
+          "side": "Pmc",
+          "startedMessageText": "painter_4 startedMessageText",
+          "successMessageText": "painter_4 successMessageText",
+          "templateId": "painter_4",
+          "traderId": "PAINTERSHOP",
+          "type": "PickUp"
+      }
+}

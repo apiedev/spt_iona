@@ -1,0 +1,27 @@
+{
+	"items": [
+		{
+			"_id": "PA_CONTAINER",
+			"_tpl": "5c0a840b86f7742ffa4f2482",
+			"parentId": "hideout",
+			"slotId": "hideout",
+			"upd": {
+				"UnlimitedCount": true,
+				"StackObjectsCount": 12
+			}
+		}
+	],
+	"barter_scheme": {
+		"PA_CONTAINER": [
+			[
+				{
+					"count": 15000000,
+					"_tpl": "5449016a4bdc2d6f028b456f"
+				}
+			]
+		]
+	},
+	"loyal_level_items": {
+		"PA_CONTAINER": 3
+	}
+}

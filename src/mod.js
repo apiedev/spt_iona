@@ -93,6 +93,12 @@ class SampleTrader {
             .addMoneyCost(Money_1.Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
+        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollSpacer")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money_1.Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
         // Add trader to locale file, ensures trader text shows properly on screen
         // WARNING: adds the same text to ALL locales (e.g. chinese/french/english)
         this.traderHelper.addTraderToLocales(baseJson, tables, baseJson.name, "Iona", baseJson.nickname, baseJson.location, "Iona is a weeb stuck in a warzone willing to sell degen material to anyone with the cash.");

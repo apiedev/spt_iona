@@ -102,6 +102,97 @@ class SampleTrader implements IPreAkiLoadMod, IPostDBLoadMod
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
 
+        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollSpacer")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+
+        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollInsight")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+
+        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollAimpoint")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+
+        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollNoveske")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+
+        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollST2")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollGenM3")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX38")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX1075")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollAvalanche")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollForegripBcm")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollMk12Low")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollKacPanelShort")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX38Lower")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX1075Lower")
+            .addStackCount(200)
+            .addBuyRestriction(10)
+            .addMoneyCost(Money.ROUBLES, 2000)
+            .addLoyaltyLevel(1)
+            .export(tables.traders[baseJson._id]);
+
         // Add trader to locale file, ensures trader text shows properly on screen
         // WARNING: adds the same text to ALL locales (e.g. chinese/french/english)
         this.traderHelper.addTraderToLocales(baseJson, tables, baseJson.name, "Iona", baseJson.nickname, baseJson.location, "Iona is a weeb stuck in a warzone willing to sell degen material to anyone with the cash.");

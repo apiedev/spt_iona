@@ -1,0 +1,35 @@
+{
+  "degenerate": {
+    "id": "degenerate",
+    "trader_id": "iona",
+    "name": {
+      "en": "Degenerate"
+    },
+    "description": {
+      "en": "Find Iona a Shroud mask."
+    },
+    "success_message": {
+      "en": "Thank you, I've been looking for one of these."
+    },
+    "type": "PickUp",
+    "rewards": {
+      "xp": 7200,
+      "items": {
+        "5449016a4bdc2d6f028b456f": 25000
+      }
+    },
+    "missions": [
+      {
+        "type": "GiveItem",
+        "accepted_items": [
+          "5e54f76986f7740366043752"
+        ],
+        "message": {
+          "en": "Find a Shroud Mask in raid."
+        },
+        "count": 1,
+        "found_in_raid_only": true
+      }
+    ]
+  }
+}

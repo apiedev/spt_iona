@@ -1,25 +1,25 @@
-import { DependencyContainer } from "tsyringe";
+import {DependencyContainer} from "tsyringe";
 
 // SPT types
-import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod";
-import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod";
-import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
-import { PreAkiModLoader } from "@spt-aki/loaders/PreAkiModLoader";
-import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
-import { ImageRouter } from "@spt-aki/routers/ImageRouter";
-import { ConfigServer } from "@spt-aki/servers/ConfigServer";
-import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
-import { ITraderConfig } from "@spt-aki/models/spt/config/ITraderConfig";
-import { IRagfairConfig } from "@spt-aki/models/spt/config/IRagfairConfig";
-import { JsonUtil } from "@spt-aki/utils/JsonUtil";
+import {IPreAkiLoadMod} from "@spt-aki/models/external/IPreAkiLoadMod";
+import {IPostDBLoadMod} from "@spt-aki/models/external/IPostDBLoadMod";
+import {ILogger} from "@spt-aki/models/spt/utils/ILogger";
+import {PreAkiModLoader} from "@spt-aki/loaders/PreAkiModLoader";
+import {DatabaseServer} from "@spt-aki/servers/DatabaseServer";
+import {ImageRouter} from "@spt-aki/routers/ImageRouter";
+import {ConfigServer} from "@spt-aki/servers/ConfigServer";
+import {ConfigTypes} from "@spt-aki/models/enums/ConfigTypes";
+import {ITraderConfig} from "@spt-aki/models/spt/config/ITraderConfig";
+import {IRagfairConfig} from "@spt-aki/models/spt/config/IRagfairConfig";
+import {JsonUtil} from "@spt-aki/utils/JsonUtil";
 
 // New trader settings
-import * as baseJson from "../db/base.json";
-import { TraderHelper } from "./traderHelpers";
-import { FluentAssortConstructor } from "./fluentTraderAssortCreator";
-import { Money } from "@spt-aki/models/enums/Money";
-import { Traders } from "@spt-aki/models/enums/Traders";
-import { HashUtil } from "@spt-aki/utils/HashUtil";
+import * as baseJson from "../database/base.json";
+import {TraderHelper} from "./traderHelpers";
+import {FluentAssortConstructor} from "./fluentTraderAssortCreator";
+import {Money} from "@spt-aki/models/enums/Money";
+import {Traders} from "@spt-aki/models/enums/Traders";
+import {HashUtil} from "@spt-aki/utils/HashUtil";
 
 class SampleTrader implements IPreAkiLoadMod, IPostDBLoadMod
 {
@@ -86,7 +86,18 @@ class SampleTrader implements IPreAkiLoadMod, IPostDBLoadMod
 
         // Add new trader to the trader dictionary in DatabaseServer - has no assorts (items) yet
         this.traderHelper.addTraderToDb(baseJson, tables, jsonUtil);
+        this.addItems(tables);
 
+        // Add trader to locale file, ensures trader text shows properly on screen
+        // WARNING: adds the same text to ALL locales (e.g. chinese/french/english)
+        this.traderHelper.addTraderToLocales(baseJson, tables, baseJson.name, "Iona", baseJson.nickname, baseJson.location, "Iona is a weeb stuck in a warzone willing to sell degen material to anyone with the cash.");
+
+        this.logger.debug(`[${this.mod}] postDb Loaded`);
+    }
+
+
+    private addItems (tables: any): void
+    {
         // Can find item ids in `database\templates\items.json` or with https://db.sp-tarkov.com/search
         this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollVudu")
             .addStackCount(200)
@@ -150,54 +161,55 @@ class SampleTrader implements IPreAkiLoadMod, IPostDBLoadMod
             .addMoneyCost(Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
+
         this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX1075")
             .addStackCount(200)
             .addBuyRestriction(10)
             .addMoneyCost(Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
+
         this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollAvalanche")
             .addStackCount(200)
             .addBuyRestriction(10)
             .addMoneyCost(Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
+
         this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollForegripBcm")
             .addStackCount(200)
             .addBuyRestriction(10)
             .addMoneyCost(Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
+
         this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollMk12Low")
             .addStackCount(200)
             .addBuyRestriction(10)
             .addMoneyCost(Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
+
         this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollKacPanelShort")
             .addStackCount(200)
             .addBuyRestriction(10)
             .addMoneyCost(Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
+
         this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX38Lower")
             .addStackCount(200)
             .addBuyRestriction(10)
             .addMoneyCost(Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
+
         this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX1075Lower")
             .addStackCount(200)
             .addBuyRestriction(10)
             .addMoneyCost(Money.ROUBLES, 2000)
             .addLoyaltyLevel(1)
             .export(tables.traders[baseJson._id]);
-
-        // Add trader to locale file, ensures trader text shows properly on screen
-        // WARNING: adds the same text to ALL locales (e.g. chinese/french/english)
-        this.traderHelper.addTraderToLocales(baseJson, tables, baseJson.name, "Iona", baseJson.nickname, baseJson.location, "Iona is a weeb stuck in a warzone willing to sell degen material to anyone with the cash.");
-
-        this.logger.debug(`[${this.mod}] postDb Loaded`);
     }
 }
 

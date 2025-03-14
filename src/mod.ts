@@ -1,62 +1,60 @@
-import {DependencyContainer} from "tsyringe";
+import { DependencyContainer } from "tsyringe";
 
 // SPT types
-import {IPreAkiLoadMod} from "@spt-aki/models/external/IPreAkiLoadMod";
-import {IPostDBLoadMod} from "@spt-aki/models/external/IPostDBLoadMod";
-import {ILogger} from "@spt-aki/models/spt/utils/ILogger";
-import {PreAkiModLoader} from "@spt-aki/loaders/PreAkiModLoader";
-import {DatabaseServer} from "@spt-aki/servers/DatabaseServer";
-import {ImageRouter} from "@spt-aki/routers/ImageRouter";
-import {ConfigServer} from "@spt-aki/servers/ConfigServer";
-import {ConfigTypes} from "@spt-aki/models/enums/ConfigTypes";
-import {ITraderConfig} from "@spt-aki/models/spt/config/ITraderConfig";
-import {IRagfairConfig} from "@spt-aki/models/spt/config/IRagfairConfig";
-import {JsonUtil} from "@spt-aki/utils/JsonUtil";
+import { IPreSptLoadMod } from "@spt/models/external/IPreSptLoadMod";
+import { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod";
+import { ILogger } from "@spt/models/spt/utils/ILogger";
+import { PreSptModLoader } from "@spt/loaders/PreSptModLoader";
+import { DatabaseServer } from "@spt/servers/DatabaseServer";
+import { ImageRouter } from "@spt/routers/ImageRouter";
+import { ConfigServer } from "@spt/servers/ConfigServer";
+import { ConfigTypes } from "@spt/models/enums/ConfigTypes";
+import { ITraderConfig } from "@spt/models/spt/config/ITraderConfig";
+import { IRagfairConfig } from "@spt/models/spt/config/IRagfairConfig";
+import { JsonUtil } from "@spt/utils/JsonUtil";
+import { Traders } from "@spt/models/enums/Traders";
 
 // New trader settings
-import * as baseJson from "../database/base.json";
-import {TraderHelper} from "./traderHelpers";
-import {FluentAssortConstructor} from "./fluentTraderAssortCreator";
-import {Money} from "@spt-aki/models/enums/Money";
-import {Traders} from "@spt-aki/models/enums/Traders";
-import {HashUtil} from "@spt-aki/utils/HashUtil";
+import baseJson = require("../db/base.json");
+import assortJson = require("../db/assort.json");
 
-class SampleTrader implements IPreAkiLoadMod, IPostDBLoadMod
+
+import { TraderHelper } from "./traderHelpers";
+
+class Iona implements IPreSptLoadMod, IPostDBLoadMod
 {
-    private readonly mod: string
-    private logger: ILogger
-    private traderHelper: TraderHelper
-    private fluentTraderAssortHelper: FluentAssortConstructor
+    private mod: string;
+    private traderImgPath: string;
+    private logger: ILogger;
+    private traderHelper: TraderHelper;
 
     constructor() 
     {
-        this.mod = "spt_iona"; // Set name of mod, so we can log it to console later
+        this.mod = "spt_iona";
+        this.traderImgPath = "res/iona.jpg";
     }
 
     /**
      * Some work needs to be done prior to SPT code being loaded, registering the profile image + setting trader update time inside the trader config json
      * @param container Dependency container
      */
-    public preAkiLoad(container: DependencyContainer): void
+    public preSptLoad(container: DependencyContainer): void
     {
         // Get a logger
         this.logger = container.resolve<ILogger>("WinstonLogger");
-        this.logger.debug(`[${this.mod}] preAki Loading... `);
-        this.logger.log("Iona is saving her game and will be with you shortly.", "italic magenta");
+        this.logger.debug(`[${this.mod}] preSpt Loading... `);
 
         // Get SPT code/data we need later
-        const preAkiModLoader: PreAkiModLoader = container.resolve<PreAkiModLoader>("PreAkiModLoader");
+        const preSptModLoader: PreSptModLoader = container.resolve<PreSptModLoader>("PreSptModLoader");
         const imageRouter: ImageRouter = container.resolve<ImageRouter>("ImageRouter");
-        const hashUtil: HashUtil = container.resolve<HashUtil>("HashUtil");
         const configServer = container.resolve<ConfigServer>("ConfigServer");
         const traderConfig: ITraderConfig = configServer.getConfig<ITraderConfig>(ConfigTypes.TRADER);
         const ragfairConfig = configServer.getConfig<IRagfairConfig>(ConfigTypes.RAGFAIR);
 
         // Create helper class and use it to register our traders image/icon + set its stock refresh time
         this.traderHelper = new TraderHelper();
-        this.fluentTraderAssortHelper = new FluentAssortConstructor(hashUtil, this.logger);
-        this.traderHelper.registerProfileImage(baseJson, this.mod, preAkiModLoader, imageRouter, "iona.jpg");
-        this.traderHelper.setTraderUpdateTime(traderConfig, baseJson, 10);
+        imageRouter.addRoute(baseJson.avatar.replace(".jpg", ""), `${preSptModLoader.getModPath(this.mod)}${this.traderImgPath}`);
+        this.traderHelper.setTraderUpdateTime(traderConfig, baseJson, 3600, 4000);
 
         // Add trader to trader enum
         Traders[baseJson._id] = baseJson._id;
@@ -64,8 +62,7 @@ class SampleTrader implements IPreAkiLoadMod, IPostDBLoadMod
         // Add trader to flea market
         ragfairConfig.traders[baseJson._id] = true;
 
-        this.logger.log("Iona is ready to sell you all your degen needs.", "italic magenta");
-        this.logger.debug(`[${this.mod}] preAki Loaded`);
+        this.logger.debug(`[${this.mod}] preSpt Loaded`);
     }
     
     /**
@@ -78,139 +75,26 @@ class SampleTrader implements IPreAkiLoadMod, IPostDBLoadMod
 
         // Resolve SPT classes we'll use
         const databaseServer: DatabaseServer = container.resolve<DatabaseServer>("DatabaseServer");
-        container.resolve<ConfigServer>("ConfigServer");
         const jsonUtil: JsonUtil = container.resolve<JsonUtil>("JsonUtil");
 
         // Get a reference to the database tables
         const tables = databaseServer.getTables();
 
-        // Add new trader to the trader dictionary in DatabaseServer - has no assorts (items) yet
-        this.traderHelper.addTraderToDb(baseJson, tables, jsonUtil);
-        this.addItems(tables);
-
-        // Add trader to locale file, ensures trader text shows properly on screen
-        // WARNING: adds the same text to ALL locales (e.g. chinese/french/english)
-        this.traderHelper.addTraderToLocales(baseJson, tables, baseJson.name, "Iona", baseJson.nickname, baseJson.location, "Iona is a weeb stuck in a warzone willing to sell degen material to anyone with the cash.");
-
+        // Add new trader to the trader dictionary in DatabaseServer - this is where the assort json is loaded
+        /*
+        * The assortJSON includes the following:
+        * Milk available for roubles at LL1
+        * Milk available for item barter at LL1
+        * Helmet w/ soft armour available for roubles at LL1
+        * Helmet w/ soft armour available for item barter at LL1
+        * 
+        * It is *highly recommended* to use MongoIDs for the IDs in the assort, this example does not in order to make it easier to understand.
+        */
+        this.traderHelper.addTraderToDb(baseJson, tables, jsonUtil, assortJson);
+        this.traderHelper.addTraderToLocales(baseJson, tables, baseJson.name, "Iona", baseJson.nickname, baseJson.location, "A trader that sells game and Japanese inspired modifications.");
+        
         this.logger.debug(`[${this.mod}] postDb Loaded`);
-    }
-
-
-    private addItems (tables: any): void
-    {
-        // Can find item ids in `database\templates\items.json` or with https://db.sp-tarkov.com/search
-        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollVudu")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollVltor")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollSpacer")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollInsight")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollAimpoint")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollNoveske")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("CinnamorollST2")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollGenM3")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX38")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX1075")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollAvalanche")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollForegripBcm")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollMk12Low")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollKacPanelShort")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX38Lower")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
-
-        this.fluentTraderAssortHelper.createSingleAssortItem("cinnamorollURX1075Lower")
-            .addStackCount(200)
-            .addBuyRestriction(10)
-            .addMoneyCost(Money.ROUBLES, 2000)
-            .addLoyaltyLevel(1)
-            .export(tables.traders[baseJson._id]);
     }
 }
 
-module.exports = { mod: new SampleTrader() }
+module.exports = { mod: new Iona() }

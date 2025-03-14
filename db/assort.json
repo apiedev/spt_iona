@@ -1,0 +1,112 @@
+{
+  "items": [
+    {
+      "_name": "Cinnamoroll Razor",
+      "_id": "67cb9b85ac97b895ebf56fdd",
+      "_tpl": "67cb5a0a15f5a376aa74b1c7",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": false,
+        "StackObjectsCount": 200,
+        "BuyRestrictionMax": 4,
+        "BuyRestrictionCurrent": 0
+      }
+    },
+    {
+      "_name": "Cinnamoroll Emod",
+      "_id": "67cb9bf38e6786e4ddb7c45a",
+      "_tpl": "67ca3e89ccde2501bbf91e76",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": false,
+        "StackObjectsCount": 200,
+        "BuyRestrictionMax": 4,
+        "BuyRestrictionCurrent": 0
+      }
+    },
+    {
+      "_name": "Cinnamoroll Gen3 Mag",
+      "_id": "67cb9c43e2096b001b9563b0",
+      "_tpl": "67ca3e89ccde2501bbf91e7c",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": false,
+        "StackObjectsCount": 200,
+        "BuyRestrictionMax": 4,
+        "BuyRestrictionCurrent": 0
+      }
+    },
+    {
+      "_name": "Cinnamoroll Avalanche",
+      "_id": "67cb9c86d540a25c3425af2f",
+      "_tpl": "67ca3e89ccde2501bbf91e7f",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": false,
+        "StackObjectsCount": 200,
+        "BuyRestrictionMax": 4,
+        "BuyRestrictionCurrent": 0
+      }
+    },
+    {
+      "_name": "Comtac VI Black",
+      "_id": "67cd01d8e0fe839bfa64d34e",
+      "_tpl": "67cd00e98bcac3596782fb08",
+      "parentId": "hideout",
+      "slotId": "hideout",
+      "upd": {
+        "UnlimitedCount": false,
+        "StackObjectsCount": 200,
+        "BuyRestrictionMax": 4,
+        "BuyRestrictionCurrent": 0
+      }
+    }
+  ],
+  "barter_scheme": {
+    "67cb9b85ac97b895ebf56fdd": [
+      [
+        {
+          "count": 70000,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "67cb9bf38e6786e4ddb7c45a": [
+      [
+        {
+          "count": 20000,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "67cb9c43e2096b001b9563b0": [
+      [
+        {
+          "count": 5000,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "67cb9c86d540a25c3425af2f": [
+      [
+        {
+          "count": 30000,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ],
+    "67cd01d8e0fe839bfa64d34e": [
+      [
+        {
+          "count": 150000,
+          "_tpl": "5449016a4bdc2d6f028b456f"
+        }
+      ]
+    ]
+  },
+  "loyal_level_items": {}
+}
